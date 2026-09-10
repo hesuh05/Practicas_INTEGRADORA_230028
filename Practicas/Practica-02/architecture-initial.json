@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura inicial — Plataforma móvil",
+    "output": "arquitectura-inicial.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "main-request",
+        "label": "Flujo principal",
+        "focus": ["mobile-app", "keycloak", "fastapi", "postgres", "mongodb"],
+        "note": "La app obtiene identidad y usa el API para consultar y persistir datos."
+      },
+      {
+        "id": "external-map",
+        "label": "Mapas externos",
+        "focus": ["mobile-app", "fastapi", "maps"],
+        "note": "El API integra funciones geoespaciales con el servicio de mapas."
+      },
+      {
+        "id": "development",
+        "label": "Desarrollo",
+        "focus": ["git", "github", "docker-compose", "keycloak", "fastapi", "postgres", "mongodb"],
+        "note": "Git y GitHub controlan el código; Docker Compose levanta los servicios locales."
+      }
+    ]
+  },
+  "components": [
+    { "id": "mobile-app", "type": "frontend", "label": "Flutter Mobile App", "sublabel": "Cliente móvil", "pos": [45, 310], "size": [155, 70], "tag": "Mobile client" },
+    { "id": "keycloak", "type": "security", "label": "Keycloak", "sublabel": "OAuth 2.0 / OIDC", "pos": [280, 150], "size": [150, 70], "tag": "Authentication layer" },
+    { "id": "fastapi", "type": "backend", "label": "FastAPI REST API", "sublabel": "Servicio de aplicación", "pos": [500, 310], "size": [165, 70], "tag": "API layer", "brand": "fastapi" },
+    { "id": "postgres", "type": "database", "label": "PostgreSQL", "sublabel": "Datos relacionales", "pos": [770, 220], "size": [150, 70], "tag": "Data layer", "brand": "postgresql" },
+    { "id": "mongodb", "type": "database", "label": "MongoDB", "sublabel": "Datos documentales", "pos": [770, 400], "size": [150, 70], "tag": "Data layer", "brand": "mongodb" },
+    { "id": "maps", "type": "external", "label": "Leaflet / Maps Service", "sublabel": "Mapas y geolocalización", "pos": [500, 535], "size": [165, 70], "tag": "External service" },
+    { "id": "git", "type": "external", "label": "Git", "sublabel": "Control de versiones local", "pos": [45, 585], "size": [130, 60], "tag": "Source control" },
+    { "id": "github", "type": "external", "label": "GitHub", "sublabel": "Repositorio remoto", "pos": [265, 585], "size": [140, 60], "tag": "Source control", "brand": "github" },
+    { "id": "docker-compose", "type": "cloud", "label": "Docker Compose", "sublabel": "Entorno de desarrollo", "pos": [500, 690], "size": [165, 70], "tag": "Development infrastructure" }
+  ],
+  "boundaries": [
+    { "kind": "security-group", "label": "Límite de confianza: dispositivo móvil", "wraps": ["mobile-app"] },
+    { "kind": "security-group", "label": "Límite de confianza: servicios de aplicación", "wraps": ["keycloak", "fastapi", "postgres", "mongodb"] },
+    { "kind": "region", "label": "Servicios externos", "wraps": ["maps", "github"] },
+    { "kind": "region", "label": "Entorno de desarrollo local", "wraps": ["git", "docker-compose"] }
+  ],
+  "connections": [
+    { "id": "authenticate", "from": "mobile-app", "to": "keycloak", "label": "OIDC / PKCE", "variant": "security" },
+    { "id": "api-request", "from": "mobile-app", "to": "fastapi", "label": "HTTPS + Bearer JWT", "variant": "emphasis" },
+    { "id": "token-validation", "from": "fastapi", "to": "keycloak", "label": "validar token JWT", "variant": "security" },
+    { "id": "relational-data", "from": "fastapi", "to": "postgres", "label": "SQL / TCP 5432", "fromSide": "right", "toSide": "left" },
+    { "id": "document-data", "from": "fastapi", "to": "mongodb", "label": "Documentos / TCP 27017", "fromSide": "right", "toSide": "left", "labelAt": [718, 394] },
+    { "id": "map-integration", "from": "fastapi", "to": "maps", "label": "API de mapas / HTTPS", "variant": "dashed", "fromSide": "bottom", "toSide": "top", "labelAt": [576, 430] },
+    { "id": "push-sync", "from": "git", "to": "github", "label": "push / pull" },
+    { "id": "local-stack", "from": "github", "to": "docker-compose", "label": "clonar y ejecutar", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Flujo principal", "items": ["Flutter autentica usuarios con Keycloak mediante OIDC/PKCE.", "Flutter consume FastAPI por HTTPS con Bearer JWT.", "FastAPI persiste datos relacionales en PostgreSQL y documentos en MongoDB."] },
+    { "dot": "rose", "title": "Límites de confianza", "items": ["El cliente móvil y los servicios de aplicación están separados.", "Solo el API accede directamente a las bases de datos.", "Mapas y GitHub quedan fuera del perímetro de aplicación."] },
+    { "dot": "emerald", "title": "Desarrollo", "items": ["Git y GitHub gestionan el código fuente.", "Docker Compose orquesta la pila local de servicios."] }
+  ]
+}
