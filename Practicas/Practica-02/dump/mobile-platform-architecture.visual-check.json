@@ -6,9 +6,9 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "C:\\Users\\PC-08\\Desktop\\10A-IDGS Integradora\\Practicas_INTEGRADORA_230028\\arquitectura-inicial.html",
-    "sha256": "626ebbde1a78081d475f7108ab180de039633c4b8c617510c2e1bda280d29a7d",
-    "bytes": 823502
+    "path": "C:\\Users\\PC-03\\Desktop\\Practicas_10A_Integrador\\Practicas_INTEGRADORA_230028\\mobile-platform-architecture.html",
+    "sha256": "18f30f61546669cd342c40448147ee25ca682107d0377c3f29ebf075d8316340",
+    "bytes": 831987
   },
   "state": {
     "detail": "read",
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "C:\\Users\\PC-08\\Desktop\\10A-IDGS Integradora\\Practicas_INTEGRADORA_230028\\arquitectura-inicial.html"
+        "artifact": "C:\\Users\\PC-03\\Desktop\\Practicas_10A_Integrador\\Practicas_INTEGRADORA_230028\\mobile-platform-architecture.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with exit code 0\nChrome process: exit code 0."
@@ -53,8 +53,8 @@
     "contactSheet": null
   },
   "sidecars": {
-    "receipt": "arquitectura-inicial.visual-check.json",
-    "contactSheet": "arquitectura-inicial.visual-check.html"
+    "receipt": "mobile-platform-architecture.visual-check.json",
+    "contactSheet": "mobile-platform-architecture.visual-check.html"
   },
   "error": "Chrome DevTools process exit failed: Chrome closed with exit code 0\nChrome process: exit code 0."
 }
