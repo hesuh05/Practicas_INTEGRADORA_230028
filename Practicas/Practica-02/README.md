@@ -42,4 +42,5 @@ FastAPI integra un servicio de mapas basado en Leaflet. Git y GitHub administran
 ## Evidencias y entregables
 
 [Diagrama de arquitectura inicial (HTML)](https://hesuh05.github.io/Practicas_INTEGRADORA_230028/Practicas/Practica-02/arquitectura-inicial.html)
+
 [Evidencias (PDF)](evidencias.pdf)
