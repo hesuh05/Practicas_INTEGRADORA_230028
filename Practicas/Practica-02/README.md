@@ -39,6 +39,7 @@ La aplicación móvil consume la API REST desarrollada con FastAPI mediante HTTP
 
 FastAPI integra un servicio de mapas basado en Leaflet. Git y GitHub administran el código fuente, mientras que Docker Compose permite ejecutar el entorno local de desarrollo.
 
-## Liga
+## Evidencias y entregables
 
-[HTML de Diagrama de Arquitectura Inicial](https://hesuh05.github.io/Practicas_INTEGRADORA_230028/Practicas/Practica-02/arquitectura-inicial.html)
+[Diagrama de arquitectura inicial (HTML)](https://hesuh05.github.io/Practicas_INTEGRADORA_230028/Practicas/Practica-02/arquitectura-inicial.html)
+[Evidencias (PDF)](evidencias.pdf)
