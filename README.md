@@ -13,3 +13,4 @@ Este repositorio contiene las evidencias y entregables de las prácticas realiza
 | No. | Nombre | Descripción | Potenciador | Estatus |
 |----:|--------|-------------|------------:|---------|
 | 2. | [Boceto de Arquitectura del Proyecto Integrador](Practicas/Practica-02/README.md) | Elaboración de un diagrama interactivo de arquitectura con Archify, Codex-CLI y GitHub Pages. | Por definir | Concluida |
+| 3. | [Boceto de Modelo Canvas con Archify](Practicas/Practica-03/README.md) | Elaboración de un boceto interactivo del modelo Business Model Canvas para una herramienta multiplataforma de uso cotidiano. Para esta práctica se eligió LoopPack. | Por definir | Concluida |
