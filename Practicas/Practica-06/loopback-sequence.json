@@ -1,0 +1,52 @@
+﻿{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "PrÃ¡ctica 06: LoopBack Mobile App",
+    "subtitle": "DevoluciÃ³n, recolecciÃ³n y recompensa Â· selecciona P1â€“P6 para explorar",
+    "output": "loopback-diagram.html",
+    "viewBox": [1320, 640],
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "translations": {"toolbar.export":"Exportar","toolbar.copyLink":"Copiar enlace","toolbar.reset":"Restablecer","toolbar.theme":"Cambiar tema","toolbar.search":"Buscar","toolbar.present":"Presentar","toolbar.close":"Cerrar","toolbar.zoomIn":"Acercar","toolbar.zoomOut":"Alejar","toolbar.fit":"Ajustar","toolbar.download":"Descargar","toolbar.share":"Compartir","toolbar.menu":"MenÃº","legend.default":"InteracciÃ³n","legend.emphasis":"AcciÃ³n principal","legend.security":"ValidaciÃ³n","legend.dashed":"NotificaciÃ³n","legend.return":"Respuesta","viewer.title":"Diagrama de secuencia","viewer.searchPlaceholder":"Buscar en el diagrama","viewer.noResults":"Sin resultados","viewer.back":"Volver","viewer.next":"Siguiente","viewer.play":"Reproducir","viewer.pause":"Pausar","viewer.reset":"Reiniciar","export.png":"Exportar PNG","export.svg":"Exportar SVG","export.copy":"Copiar SVG"}
+  },
+  "participants": [
+    {"id":"consumidor","type":"external","label":"Consumidor","sublabel":"Cliente B2C","icon":"person"},
+    {"id":"app-cliente","type":"frontend","label":"App MÃ³vil Cliente","sublabel":"LoopBack B2C","icon":"frontend"},
+    {"id":"servidor","type":"backend","label":"Servidor Central LoopBack","sublabel":"Registro y validaciÃ³n","icon":"backend"},
+    {"id":"app-operador","type":"frontend","label":"App MÃ³vil Operador","sublabel":"LoopBack B2B","icon":"frontend"},
+    {"id":"operador","type":"external","label":"Operador Acopio","sublabel":"LogÃ­stica B2B","icon":"person"}
+  ],
+  "segments": [
+    {"from":150,"to":230,"label":"DevoluciÃ³n del cliente"},
+    {"from":240,"to":380,"label":"RecolecciÃ³n y validaciÃ³n"},
+    {"from":390,"to":470,"label":"ConfirmaciÃ³n"}
+  ],
+  "messages": [
+    {"id":"p1-mapa","from":"consumidor","to":"app-cliente","y":160,"label":"P1 Â· Explora mapa y elige buzÃ³n","variant":"emphasis","note":"Mapa GPS y buzones cercanos"},
+    {"id":"p1-gps","from":"app-cliente","to":"servidor","y":184,"label":"Consultar puntos prÃ³ximos","variant":"default"},
+    {"id":"p1-puntos","from":"servidor","to":"app-cliente","y":208,"label":"Puntos + distancias","variant":"return"},
+    {"id":"p2-qr","from":"consumidor","to":"app-cliente","y":238,"label":"P2 Â· Escanea bolsa y buzÃ³n","variant":"emphasis","note":"Dos QR vinculados al depÃ³sito"},
+    {"id":"p2-registro","from":"app-cliente","to":"servidor","y":262,"label":"Registrar bolsa + buzÃ³n","variant":"default"},
+    {"id":"p3-pendiente","from":"servidor","to":"app-cliente","y":292,"label":"P3 Â· DepÃ³sito pendiente de validaciÃ³n","variant":"return","note":"ID de bolsa y progreso visible"},
+    {"id":"p4-ruta","from":"operador","to":"app-operador","y":330,"label":"P4 Â· Abre ruta y buzones asignados","variant":"emphasis","note":"Lista de acopio pendiente"},
+    {"id":"p4-consulta","from":"app-operador","to":"servidor","y":354,"label":"Consultar ruta + pendientes","variant":"default"},
+    {"id":"p4-lista","from":"servidor","to":"app-operador","y":378,"label":"Ruta + bolsas por inspeccionar","variant":"return"},
+    {"id":"p5-inspeccion","from":"operador","to":"app-operador","y":408,"label":"P5 Â· Escanea, evalÃºa y confirma bolsa","variant":"emphasis","note":"Buen estado o daÃ±ado"},
+    {"id":"p5-validar","from":"app-operador","to":"servidor","y":432,"label":"Enviar estado + alta inventario","variant":"security"},
+    {"id":"p5-aprobada","from":"servidor","to":"app-operador","y":456,"label":"InspecciÃ³n aprobada","variant":"return"},
+    {"id":"p6-push","from":"servidor","to":"app-cliente","y":490,"label":"P6 Â· Push: cupÃ³n $5 OFF + impacto","variant":"dashed","note":"Recompensa y balance ambiental"},
+    {"id":"p6-final","from":"app-cliente","to":"consumidor","y":520,"label":"Muestra recompensa confirmada","variant":"return"}
+  ],
+  "activations": [
+    {"participant":"app-cliente","from":158,"to":306,"type":"frontend"},
+    {"participant":"servidor","from":181,"to":503,"type":"backend"},
+    {"participant":"app-operador","from":328,"to":464,"type":"frontend"}
+  ],
+  "cards": [
+    {"dot":"emerald","title":"Cliente B2C","items":["P1 localiza el buzÃ³n y muestra distancia estimada.","P2 vincula el QR de la bolsa con el QR fÃ­sico del buzÃ³n.","P3 confirma el depÃ³sito y mantiene visible el estado pendiente."]},
+    {"dot":"violet","title":"Operador B2B","items":["P4 organiza los buzones asignados y la carga pendiente.","P5 registra condiciÃ³n fÃ­sica y entrada al inventario de sanitizaciÃ³n."]},
+    {"dot":"amber","title":"Cierre del ciclo","items":["La aprobaciÃ³n de inspecciÃ³n inicia la notificaciÃ³n push.","P6 acredita el cupÃ³n de $5 OFF y actualiza el impacto ambiental."]}
+  ]
+}

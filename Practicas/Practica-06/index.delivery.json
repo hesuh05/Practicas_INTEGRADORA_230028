@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ac0eb377-1794-40b2-a042-e6177341bd25",
+  "status": "current",
+  "command": "deliver",
+  "type": "sequence",
+  "input": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\candidate.json",
+  "output": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\index.html",
+  "specification": {
+    "sha256": "92e583294879bceb54f42e2cd3346fcaf554a6542378caae9b66e94292731847",
+    "bytes": 5589
+  },
+  "artifact": {
+    "sha256": "505310304d9bf0c8e48d5f4310d2c051fd32da3a7b482bf52d35b77cfc2fce3f",
+    "bytes": 762285
+  }
+}
