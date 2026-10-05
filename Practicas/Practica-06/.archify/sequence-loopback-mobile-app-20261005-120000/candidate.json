@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Práctica 06: LoopBack Mobile App",
+    "subtitle": "Devolución, recolección y recompensa · selecciona P1–P6 para explorar",
+    "output": ".archify/sequence-loopback-mobile-app-20261005-120000/loopback-sequence.html",
+    "column_fit": "spread",
+    "animation": "trace",
+    "quality_profile": "showcase"
+  },
+  "participants": [
+    { "id": "consumidor", "type": "external", "label": "Consumidor", "sublabel": "Cliente B2C · Actor", "icon": "person" },
+    { "id": "app-cliente", "type": "frontend", "label": "App Móvil Cliente", "sublabel": "LoopBack · Boundary", "icon": "frontend" },
+    { "id": "servidor", "type": "backend", "label": "Servidor Central", "sublabel": "LoopBack · Backend / System", "icon": "backend" },
+    { "id": "app-operador", "type": "frontend", "label": "App Móvil Operador", "sublabel": "LoopBack · Boundary", "icon": "frontend" },
+    { "id": "operador", "type": "external", "label": "Operador Acopio", "sublabel": "Logística B2B · Actor", "icon": "person" }
+  ],
+  "messages": [
+    { "id": "p1-map", "from": "consumidor", "to": "app-cliente", "y": 170, "label": "P1 · Mapa de puntos de devolución", "variant": "emphasis", "note": "GPS, buzones cercanos y distancia estimada" },
+    { "id": "p1-locations", "from": "app-cliente", "to": "servidor", "y": 200, "label": "Consultar buzones próximos", "variant": "default" },
+    { "id": "p1-results", "from": "servidor", "to": "app-cliente", "y": 230, "label": "Puntos + distancias", "variant": "return" },
+    { "id": "p2-scan", "from": "consumidor", "to": "app-cliente", "y": 265, "label": "P2 · Escaneo de empaque y buzón", "variant": "emphasis", "note": "Escanea los dos códigos QR" },
+    { "id": "p2-register", "from": "app-cliente", "to": "servidor", "y": 295, "label": "Vincular QR de bolsa + buzón", "variant": "default" },
+    { "id": "p3-pending", "from": "servidor", "to": "app-cliente", "y": 330, "label": "P3 · Devolución en proceso", "variant": "return", "note": "Identificador, estado pendiente y progreso" },
+    { "id": "p4-route", "from": "operador", "to": "app-operador", "y": 370, "label": "P4 · Dashboard / lista de acopio", "variant": "emphasis", "note": "Ruta, buzones y empaques por recolectar" },
+    { "id": "p4-query", "from": "app-operador", "to": "servidor", "y": 400, "label": "Consultar ruta y pendientes", "variant": "default" },
+    { "id": "p4-list", "from": "servidor", "to": "app-operador", "y": 430, "label": "Ruta + bolsas por inspeccionar", "variant": "return" },
+    { "id": "p5-inspect", "from": "operador", "to": "app-operador", "y": 465, "label": "P5 · Inspección y validación", "variant": "emphasis", "note": "Escanea, evalúa el estado y confirma" },
+    { "id": "p5-validate", "from": "app-operador", "to": "servidor", "y": 495, "label": "Registrar condición + inventario", "variant": "security" },
+    { "id": "p5-approved", "from": "servidor", "to": "app-operador", "y": 525, "label": "Inspección aprobada", "variant": "return" },
+    { "id": "p6-reward", "from": "servidor", "to": "app-cliente", "y": 565, "label": "P6 · Push: recompensa confirmada", "variant": "dashed", "note": "Cupón $5 OFF + impacto ambiental" },
+    { "id": "p6-display", "from": "app-cliente", "to": "consumidor", "y": 595, "label": "Mostrar cupón y balance actualizado", "variant": "return" }
+  ],
+  "activations": [
+    { "participant": "app-cliente", "from": 168, "to": 345, "type": "frontend" },
+    { "participant": "servidor", "from": 195, "to": 585, "type": "backend" },
+    { "participant": "app-operador", "from": 368, "to": 534, "type": "frontend" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "P1 · Mapa de Puntos de Devolución", "items": ["Rol: Consumidor (B2C).", "Imagen: images/p1.jpg.", "El cliente abre la vista de mapa interactivo con geolocalización GPS. Visualiza los buzones postales más cercanos con distancia estimada y selecciona el punto destino presionando «Llegué al buzón»."] },
+    { "dot": "cyan", "title": "P2 · Escaneo de Empaque y Buzón", "items": ["Rol: Consumidor (B2C).", "Imagen: images/p2.jpg.", "La app activa la cámara móvil con doble visor. El cliente escanea el QR impreso en la bolsa LoopBack y después el QR del buzón postal físico para vincular la bolsa depositada en el sistema central."] },
+    { "dot": "amber", "title": "P3 · Estado: Devolución en Proceso", "items": ["Rol: Consumidor (B2C).", "Imagen: images/p3.jpg.", "La confirmación del depósito muestra el identificador de la bolsa, el estado «Pendiente de validación por recolector» y una barra de avance del proceso."] },
+    { "dot": "violet", "title": "P4 · Dashboard / Lista de Acopio", "items": ["Rol: Operador Logístico (B2B).", "Imagen: images/p4.jpg.", "El recolector accede al modo B2B de LoopBack. El tablero muestra los buzones asignados en su ruta, los empaques pendientes de recolección y el botón para iniciar la inspección."] },
+    { "dot": "orange", "title": "P5 · Inspección y Validación de Acopio", "items": ["Rol: Operador Logístico (B2B).", "Imagen: images/p5.jpg.", "El operador escanea el código de barras o QR de la bolsa recibida, evalúa su estado en el selector «Buen Estado / Dañado» y confirma la entrada al inventario de sanitización."] },
+    { "dot": "rose", "title": "P6 · Recompensa Confirmada", "items": ["Rol: Consumidor (B2C).", "Imagen: images/p6.jpg.", "Una vez aprobada la inspección, el sistema envía una notificación push al cliente. La pantalla final muestra el cupón de $5 OFF acreditado y el balance de impacto ambiental actualizado."] }
+  ]
+}

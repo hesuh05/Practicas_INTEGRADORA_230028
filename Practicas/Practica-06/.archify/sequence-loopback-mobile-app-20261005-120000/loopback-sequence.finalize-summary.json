@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "sequence",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\candidate.json",
+    "sha256": "791b4f52bfbe2a5c588fc610be60c5b732bf72c1433c326876e3c7910823afca",
+    "bytes": 5655
+  },
+  "artifact": {
+    "path": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\loopback-sequence.html",
+    "sha256": "505310304d9bf0c8e48d5f4310d2c051fd32da3a7b482bf52d35b77cfc2fce3f",
+    "bytes": 762285
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/browser-check-runtime",
+      "severity": "error",
+      "message": "browser-check could not complete its Chrome inspection.",
+      "subject": {
+        "artifact": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\loopback-sequence.html"
+      },
+      "evidence": {
+        "reason": "Chrome DevTools read pipe failed: stream ended\nChrome process: still running.\nChrome transport: Node v24.21.0, libuv 1.52.1, win32; pid=30140, exitCode=null, signalCode=null.\nChrome read pipe: readable=false, ended=true, destroyed=false, receivedBytes=0, messages=0, bufferedBytes=0.\nChrome write pipe: writable=false, ended=true, destroyed=false, completedWrites=1, writtenBytes=50, bufferedBytes=0."
+      },
+      "supportedFixes": [
+        "resolve the reported Chrome inspection error, then rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\loopback-sequence.finalize.json",
+    "summaryReceipt": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\loopback-sequence.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Chucho\\Downloads\\git\\hesuh05\\Practicas_INTEGRADORA_230028\\Practicas\\Practica-06\\.archify\\sequence-loopback-mobile-app-20261005-120000\\loopback-sequence.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-05T16:42:07.370Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1324
+}
